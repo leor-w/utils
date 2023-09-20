@@ -61,6 +61,10 @@ func TestDesensitizeName(t *testing.T) {
 	}{
 		{"张三", "张*"},
 		{"张三丰", "张*丰"},
+		{"张", "张"},
+		{"张三丰a", "张*丰a"},
+		{"艾哈买提·阿合买提", "艾*******提"},
+		{"Tom Hanks", "Tom Hanks"},
 	}
 	for _, c := range cases {
 		if got := DesensitizeName(c.name); got != c.want {
